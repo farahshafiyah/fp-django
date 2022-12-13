@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BouTiQ | {{ titlenya }}</title>
+
+    {% include 'link.html' %}
+  </head>
+
+  <body>
+    <section id="menunavbar">{% include 'menu.html' %}</section>
+
+    <section class="isi">{% block konten %} {% endblock %}</section>
+
+    <section class="footer">{% include 'footer.html' %}</section>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block konten %}
+
+<div class="album py-5 bg-light">
+<div class="container">
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static',filename='img/p1.jpg')}}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Dress Black</h5>
+            <p class="card-text">Dress warna hitam</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+        </div>
+</div>
+
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static',filename='img/p2.jpg')}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Dress Black Pink</h5>
+            <p class="card-text">Dress perpaduan warna hitam & merah muda</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+        </div>
+</div>
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static',filename='img/p3.jpg')}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Outer</h5>
+            <p class="card-text">Outer warna coklat netral</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+      </div>
+</div>
+
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static',filename='img/p4.jpg')}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">One Set</h5>
+            <p class="card-text">One set cocok untuk acara formal maupun non-formal</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+        </div>
+</div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

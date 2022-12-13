@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block konten %}
+
+<h3 class="text-center">Daftar Barang</h3>
+
+<div class="container">
+<table class="table table-bordered-sm">
+    <thead>
+        <tr>
+            <th>Kode Barang</th>
+            <th>Nama</th>
+            <th>Stok</th>
+            <th>Harga</th>
+            <th>Jenis</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Barang in barangs %}
+
+        <tr>
+            <td>{{ Barang.kodebrg }}</td>
+            <td>{{ Barang.nama }}</td>
+            <td>{{ Barang.stok }}</td>
+            <td>{{ Barang.harga }}</td>
+            <td>{{ Barang.jenis_id_id }}</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

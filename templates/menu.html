@@ -1,0 +1,41 @@
+{% load static %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg mb-3" style="background-color: #4b636e;">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'img/loggo.png' %}" alt="Logo" width="50" height="54" class="d-inline-block align-text-top">
+      </a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {% if navbar == 'home' %} active {% endif %}" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if navbar == 'category' %} active {% endif %}" href="/category">Category</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Data List
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/barang">Barang</a>
+            <a class="dropdown-item" href="/brand">Brand X Colabs</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if navbar == 'cart' %} active {% endif %}" href="/admin">Login</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->

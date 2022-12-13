@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block konten %}
+
+<h3 class="text-center">Data BA</h3>
+
+<div class="container">
+    <table class="table table-bordered-sm">
+        <thead>
+            <tr>
+                <th>Kode Brand</th>
+                <th>Nama BA</th>
+                <th>Kategori</th>
+                <th>Periode</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Brand in brands %}
+
+            <tr>
+                <td>{{ Brand.kodebrand }}</td>
+                <td>{{ Brand.namaba }}</td>
+                <td>{{ Brand.kategori }}</td>
+                <td>{{ Brand.periode }}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
