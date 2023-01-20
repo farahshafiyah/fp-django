@@ -5,12 +5,12 @@
 <h3 class="text-center">Daftar Barang</h3>
 
 <div class="container">
-    <a href="/addbrg" class="btn btn-primary">Add Data</a>
     {% for message in messages %}
-        {% if message %}
-            <div class="alert alert-success">{{ message }}</div>
-        {% endif %}
+    {% if message %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endif %}
     {% endfor %}
+    <a href="/addbrg" class="btn btn-primary">Add Data</a>
     <table class="table table-bordered-sm">
         <thead>
             <tr>
