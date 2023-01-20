@@ -28,4 +28,5 @@ urlpatterns = [
     path('category/', category),
     path('addbrg/', tambah_barang),
     path('ubah/<int:id_barang>', ubah_brg, name='ubah_brg'),
+    path('hapus/<int:id_barang>', hapus_brg, name='hapus_brg'),
 ]

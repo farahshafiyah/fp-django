@@ -3,6 +3,13 @@ from dashboard.forms import FormBarang
 from dashboard.models import Barang, Brand
 from django.contrib import messages
 
+def hapus_brg(request, id_barang):
+    barangs = Barang.objects.filter(id=id_barang)
+    barangs.delete()
+    messages.success(request, "Deleted !")
+    return redirect('/barang')
+
+
 def ubah_brg(request, id_barang):
     barangs = Barang.objects.get(id=id_barang)
     if request.POST:

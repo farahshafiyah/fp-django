@@ -6,6 +6,11 @@
 
 <div class="container">
     <a href="/addbrg" class="btn btn-primary">Add Data</a>
+    {% for message in messages %}
+        {% if message %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
     <table class="table table-bordered-sm">
         <thead>
             <tr>
@@ -14,6 +19,7 @@
                 <th>Stok</th>
                 <th>Harga</th>
                 <th>Jenis</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +34,31 @@
                 <td>{{ Barang.harga }}</td>
                 <!-- <td>{{ Barang.jenis_id_id }}</td> -->
                 <td>{{ Barang.jenis_id.nama }}</td>
+                <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#hapus-{{ Barang.id }}">Delete</button></td>
+
+                <!-- Modal Start -->
+                <div class="modal fade" id="hapus-{{ Barang.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure want delete ?</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Nama barang : {{ Barang.nama }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <a href="{% url 'hapus_brg' Barang.id %}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal End -->
             </tr>
 
             {% endfor %}
