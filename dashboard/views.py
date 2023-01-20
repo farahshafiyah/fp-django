@@ -1,7 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from dashboard.forms import FormBarang
 from dashboard.models import Barang, Brand
 from django.contrib import messages
+
+def ubah_brg(request, id_barang):
+    barangs = Barang.objects.get(id=id_barang)
+    if request.POST:
+        form = FormBarang(request.POST, instance=barangs)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Success Update Data !")
+            return redirect('ubah_brg', id_barang=id_barang)
+    
+    else:
+        form=FormBarang(instance=barangs)
+        konteks = {
+            'form': form,
+            'barangs': barangs,
+        }
+    
+    return render(request, 'ubah_brg.html', konteks)
 
 
 def tambah_barang(request):

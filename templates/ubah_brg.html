@@ -10,11 +10,12 @@
                     <div class="alert alert-success">{{ message }}</div>
                 {% endif %}
             {% endfor %}
-            <form action="" method="post">
+            <h3>Ubah: {{ barangs.kodebrg }}</h3>
+            <form action="{% url 'ubah_brg' barangs.id %}" method="post">
                 {% csrf_token %}
                 {{form.as_p}}
                 <button type="submit" class="btn btn-success">
-                    Save
+                    Add
                 </button>
                 <a href="/barang" class="btn btn-danger">Back</a>
             </form>

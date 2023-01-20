@@ -21,7 +21,8 @@
             {% for Barang in barangs %}
 
             <tr>
-                <td>{{ Barang.kodebrg }}</td>
+                <!-- <td>{{ Barang.kodebrg }}</td> -->
+                <td><a href="{% url 'ubah_brg' Barang.id %}">{{ Barang.kodebrg }}</a></td>
                 <td>{{ Barang.nama }}</td>
                 <td>{{ Barang.stok }}</td>
                 <td>{{ Barang.harga }}</td>
