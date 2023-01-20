@@ -5,30 +5,33 @@
 <h3 class="text-center">Daftar Barang</h3>
 
 <div class="container">
-<table class="table table-bordered-sm">
-    <thead>
-        <tr>
-            <th>Kode Barang</th>
-            <th>Nama</th>
-            <th>Stok</th>
-            <th>Harga</th>
-            <th>Jenis</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for Barang in barangs %}
+    <a href="/addbrg" class="btn btn-primary">Add Data</a>
+    <table class="table table-bordered-sm">
+        <thead>
+            <tr>
+                <th>Kode Barang</th>
+                <th>Nama</th>
+                <th>Stok</th>
+                <th>Harga</th>
+                <th>Jenis</th>
+            </tr>
+        </thead>
+        <tbody>
 
-        <tr>
-            <td>{{ Barang.kodebrg }}</td>
-            <td>{{ Barang.nama }}</td>
-            <td>{{ Barang.stok }}</td>
-            <td>{{ Barang.harga }}</td>
-            <td>{{ Barang.jenis_id_id }}</td>
-        </tr>
+            {% for Barang in barangs %}
 
-        {% endfor %}
-    </tbody>
-</table>
+            <tr>
+                <td>{{ Barang.kodebrg }}</td>
+                <td>{{ Barang.nama }}</td>
+                <td>{{ Barang.stok }}</td>
+                <td>{{ Barang.harga }}</td>
+                <!-- <td>{{ Barang.jenis_id_id }}</td> -->
+                <td>{{ Barang.jenis_id.nama }}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 
 {% endblock %}
