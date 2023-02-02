@@ -10,9 +10,9 @@ class kolomBarang(admin.ModelAdmin):
     list_per_page = 3
 
 class dataBrand(admin.ModelAdmin):
-    list_display = ['kodebrand', 'namaba', 'kategori', 'periode']
+    list_display = ['kodebrand', 'namaba', 'jenis_id', 'periode']
     search_fields = ['kodebrand', 'namaba']
-    list_filter = ('kategori',)
+    list_filter = ('jenis_id',)
     list_per_page = 3
 
 admin.site.register(Barang,kolomBarang)

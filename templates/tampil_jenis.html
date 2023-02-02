@@ -2,7 +2,7 @@
 {% load static %}
 {% block konten %}
 
-<h3 class="text-center">Daftar Produk</h3>
+<h3 class="text-center">Daftar Jenis Produk</h3>
 
 <div class="container">
     {% for message in messages %}
@@ -10,39 +10,33 @@
     <div class="alert alert-success">{{ message }}</div>
     {% endif %}
     {% endfor %}
-    <a href="/addbrg" class="btn btn-primary">Add Data</a>
+    <a href="/addjenis" class="btn btn-primary">Add Data</a>
     <table class="table table-bordered-sm">
         <thead>
             <tr>
-                <th>Kode Barang</th>
+                <th>ID Jenis</th>
                 <th>Nama</th>
-                <th>Stok</th>
-                <th>Harga</th>
-                <th>Jenis</th>
+                <th>Keterangan</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
 
-            {% for Barang in barangs %}
+            {% for Jenis in jeniss %}
 
             <tr>
-                <!-- <td>{{ Barang.kodebrg }}</td> -->
-                <td><a href="{% url 'ubah_brg' Barang.id %}">{{ Barang.kodebrg }}</a></td>
-                <td>{{ Barang.nama }}</td>
-                <td>{{ Barang.stok }}</td>
-                <td>{{ Barang.harga }}</td>
-                <!-- <td>{{ Barang.jenis_id_id }}</td> -->
-                <td>{{ Barang.jenis_id.nama }}</td>
+                <td><a href="{% url 'ubah_jenis' Jenis.id %}">{{ Jenis.id }}</a></td>
+                <td>{{ Jenis.nama }}</td>
+                <td>{{ Jenis.ket }}</td>
                 <td>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#hapus-{{ Barang.id }}">
+                        data-bs-target="#del-{{ Jenis.id }}">
                         Delete
                     </button>
                 </td>
 
                 <!-- Modal Start -->
-                <div class="modal fade" id="hapus-{{ Barang.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="del-{{ Jenis.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -52,16 +46,15 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                Nama barang : {{ Barang.nama }}
+                                Nama jenis : {{ Jenis.nama }}
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <a href="{% url 'hapus_brg' Barang.id %}" class="btn btn-danger">Delete</a>
+                                <a href="{% url 'hapus_jenis' Jenis.id %}" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- Modal End -->
             </tr>
 

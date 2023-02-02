@@ -5,6 +5,12 @@
 <h3 class="text-center">Data BA</h3>
 
 <div class="container">
+    {% for message in messages %}
+    {% if message %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endif %}
+    {% endfor %}
+    <a href="/addbrand" class="btn btn-primary">Add Data</a>
     <table class="table table-bordered-sm">
         <thead>
             <tr>
@@ -12,16 +18,48 @@
                 <th>Nama BA</th>
                 <th>Kategori</th>
                 <th>Periode</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for Brand in brands %}
 
             <tr>
-                <td>{{ Brand.kodebrand }}</td>
+                <td>
+                    <a href="{% url 'ubah_brand' Brand.id %}">{{ Brand.kodebrand }}</a>
+                </td>
                 <td>{{ Brand.namaba }}</td>
-                <td>{{ Brand.kategori }}</td>
+                <td>{{ Brand.jenis_id.nama }}</td>
                 <td>{{ Brand.periode }}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#delete-{{ Brand.id }}">
+                        Delete
+                    </button>
+                </td>
+
+                <!-- Modal Start -->
+                <div class="modal fade" id="delete-{{ Brand.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure want delete ?</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Nama brand : {{ Brand.namaba }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <a href="{% url 'hapus_brand' Brand.id %}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal End -->
             </tr>
 
             {% endfor %}

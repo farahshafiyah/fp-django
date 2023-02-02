@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block konten %}
+
+<section id="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {% for message in messages %}
+                {% if message %}
+                <div class="alert alert-success">{{ message }}</div>
+                {% endif %}
+                {% endfor %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+                    <a href="/jenis" class="btn btn-danger">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

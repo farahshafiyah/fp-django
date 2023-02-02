@@ -5,5 +5,5 @@ def category(request):
     konteks = {
         'titlenya': title,
     }
-    return render(request, 'category.html', konteks, {'navbar': 'category'})
+    return render(request, 'category.html', konteks)
     
