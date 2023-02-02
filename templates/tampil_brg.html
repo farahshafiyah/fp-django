@@ -27,14 +27,16 @@
             {% for Barang in barangs %}
 
             <tr>
-                <!-- <td>{{ Barang.kodebrg }}</td> -->
-                <td><a href="{% url 'ubah_brg' Barang.id %}">{{ Barang.kodebrg }}</a></td>
+                <td>{{ Barang.kodebrg }}</td>
                 <td>{{ Barang.nama }}</td>
                 <td>{{ Barang.stok }}</td>
                 <td>{{ Barang.harga }}</td>
                 <!-- <td>{{ Barang.jenis_id_id }}</td> -->
                 <td>{{ Barang.jenis_id.nama }}</td>
                 <td>
+                    <a href="{% url 'ubah_brg' Barang.id %}" type="button" class="btn btn-warning">
+                        Edit
+                    </a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                         data-bs-target="#hapus-{{ Barang.id }}">
                         Delete

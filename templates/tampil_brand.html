@@ -25,13 +25,14 @@
             {% for Brand in brands %}
 
             <tr>
-                <td>
-                    <a href="{% url 'ubah_brand' Brand.id %}">{{ Brand.kodebrand }}</a>
-                </td>
+                <td>{{ Brand.kodebrand }}</td>
                 <td>{{ Brand.namaba }}</td>
                 <td>{{ Brand.jenis_id.nama }}</td>
                 <td>{{ Brand.periode }}</td>
                 <td>
+                    <a href="{% url 'ubah_brand' Brand.id %}" type="button" class="btn btn-warning">
+                        Edit
+                    </a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                         data-bs-target="#delete-{{ Brand.id }}">
                         Delete
