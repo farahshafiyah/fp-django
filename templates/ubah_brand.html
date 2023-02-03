@@ -2,26 +2,26 @@
 {% block konten %}
 
 <section id="form">
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            {% for message in messages %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {% for message in messages %}
                 {% if message %}
-                    <div class="alert alert-success">{{ message }}</div>
+                <div class="alert alert-success">{{ message }}</div>
                 {% endif %}
-            {% endfor %}
-            <h3>Ubah: {{ barangs.kodebrg }}</h3>
-            <form action="{% url 'ubah_brg' barangs.id %}" method="post">
-                {% csrf_token %}
-                {{form.as_p}}
-                <button type="submit" class="btn btn-success">
-                    Save
-                </button>
-                <a href="/barang" class="btn btn-danger">Back</a>
-            </form>
+                {% endfor %}
+                <h3>Ubah: {{ brands.kodebrand }}</h3>
+                <form action="{% url 'ubah_brand' brands.id %}" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+                    <a href="/brand" class="btn btn-danger">Back</a>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </section>
 
 {% endblock %}
